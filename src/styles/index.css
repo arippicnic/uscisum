@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.light {
+  --background: #fff;
+  --accents-2: #eaeaea;
+  --shadow-smallest: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  --color-back-primary: #f7f7f7;
+  --box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08),
+    0px 1px 4px rgba(0, 0, 0, 0.08);
+  --color-background-elements: #fff;
+}
+
+.dark {
+  --background: #000;
+  --accents-2: #333;
+  --shadow-smallest: 0 0 0 1px var(--accents-2);
+  --color-back-primary: #222427;
+  --box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.49),
+    0px 1px 4px rgba(13, 13, 13, 0.06);
+  --color-background-elements: #242425;
+}
+
+@layer base {
+  body {
+    -webkit-text-size-adjust: 100%;
+    background-color: var(--color-back-primary);
+  }
+}
+.text-base {
+  font-weight: 300;
+  line-height: 30px;
+}
+.toltip-base {
+  font-weight: bold !important;
+}
+.body-content {
+  max-width: 38em;
+  margin: auto;
+  width: 100%;
+}
+.search-content {
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  background-color: #8882;
+}
+.search-input {
+  background-color: transparent;
+  margin: 6px;
+}
+.search-result {
+  margin-top: 10px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-background-elements);
+  border-radius: 8px;
+  width: 38em;
+}
+.search-result > li:hover {
+  background-color: #e10098;
+  color: #fff;
+}
+.search-result-click {
+  width: 41em;
+}
+.input-admin {
+  max-width: 38em;
+  margin: auto;
+  width: 100%;
+}
+.input-admin-input,
+.input-admin-result {
+  background-color: #8882;
+}
+.articel-card {
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-background-elements);
+}
+.tosts-alert {
+  position: fixed;
+  left: 50%;
+  top: 4rem;
+  transform: translate(-50%, -50%);
+}
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.loader {
+  margin: 0 auto;
+  position: relative;
+  border-top: 0.7rem solid rgba(255, 255, 255, 0.2);
+  border-right: 0.7rem solid rgba(255, 255, 255, 0.2);
+  border-bottom: 0.7rem solid rgba(255, 255, 255, 0.2);
+  border-left: 0.7rem solid #ffffff;
+  animation: load8 1.1s infinite linear;
+}
+
+@keyframes load8 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
