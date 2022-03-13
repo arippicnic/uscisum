@@ -28,7 +28,7 @@ export async function getServerSideProps({ query }) {
   try {
     const { HOST } = process.env;
     const data = await (
-      await fetch(`${HOST}/api/posts/post/${query.id}`)
+      await fetch(`${HOST}api/posts/post/${query.id}`)
     ).json();
     if (data.error) {
       return {
