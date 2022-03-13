@@ -19,6 +19,6 @@ module.exports = {
     const validationError = getSchema.validate(param).error;
 
     if (validationError)
-      return responses.BAD_REQUEST(res, validationError.details[0].message);
+      throw new responses.BAD_REQUEST(res, validationError.details[0].message);
   },
 };
