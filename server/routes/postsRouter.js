@@ -5,7 +5,7 @@ import Posts from "&/models/Posts";
 import Vote from "&/models/Vote";
 
 import { getIp, getVote } from "&/utils/general";
-import { joiResponses, postSchema, voteSchema, searchSchema } from "&/validate";
+import { postSchema, voteSchema, searchSchema } from "&/validate";
 import responses from "&/utils/responses";
 
 const router = express.Router();
@@ -18,7 +18,10 @@ router.get("/", async (req, res) => {
 router.get("/search", async (req, res) => {
   try {
     const query = req.query.q;
-    joiResponses(searchSchema, { query }, res);
+    const validationError = searchSchema.validate({ query }).error;
+
+    if (validationError)
+      return responses.BAD_REQUEST(res, validationError.details[0].message);
     const results = query
       ? await Posts.find({ title: { $regex: ".*" + query + ".*" } })
           .limit(5)
@@ -32,7 +35,10 @@ router.get("/search", async (req, res) => {
 });
 
 router.get("/post/:post", async (req, res) => {
-  joiResponses(postSchema, req.params, res);
+  const validationError = postSchema.validate(req.params).error;
+
+  if (validationError)
+    return responses.BAD_REQUEST(res, validationError.details[0].message);
 
   const idPost = Types.ObjectId(req.params.post);
 
@@ -48,7 +54,14 @@ router.get("/post/:post", async (req, res) => {
 router.post("/vote/:select", async (req, res) => {
   try {
     const vote = req.params.select;
-    joiResponses(voteSchema, { idPost: req.body.idPost, vote }, res);
+    const validationError = voteSchema.validate({
+      idPost: req.body.idPost,
+      vote,
+    }).error;
+
+    if (validationError)
+      return responses.BAD_REQUEST(res, validationError.details[0].message);
+
     const author = getIp(req);
     const idPost = Types.ObjectId(req.body.idPost);
 

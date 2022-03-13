@@ -2,7 +2,7 @@
   "name": "uscisum",
   "private": true,
   "scripts": {
-    "dev": "nodemon --exec babel-node -w server server/index.js",
+    "dev": "yarn clean && nodemon --exec babel-node -w server server/index.js",
     "build": "yarn clean && next build && babel server --out-dir buildServer --copy-files",
     "start": "node ./buildServer/index.js",
     "clean": "rimraf node_modules/.cache .next buildServer && mkdir buildServer",

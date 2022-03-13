@@ -15,10 +15,4 @@ module.exports = {
         return helpers.message("ID must conform to an ObjectId");
       }
     }),
-  joiResponses: (getSchema, param, res) => {
-    const validationError = getSchema.validate(param).error;
-
-    if (validationError)
-      throw new responses.BAD_REQUEST(res, validationError.details[0].message);
-  },
 };
