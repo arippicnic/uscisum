@@ -20,10 +20,6 @@ app.prepare().then(() => {
   server.use(compression());
   server.use(express.json());
 
-  server.get("/_next/*", (req, res) => {
-    handler(req, res);
-  });
-
   server.use("/api", routes);
 
   server.get("*", (req, res) => {

@@ -1,5 +1,5 @@
 import siteMetadata from "siteMetadata";
-import Logo from "@/data/logo.svg";
+import Logo from "@/styles/logo.svg";
 import Link from "./Link";
 import Footer from "./Footer";
 import ThemeSwitch from "./ThemeSwitch";
@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
     <>
       <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
         <noscript>
-          <Toast>Creating polls and voting require JavaScript.</Toast>
+          <Toast>{`${siteMetadata.name} require JavaScript.`}</Toast>
         </noscript>
         <header className="flex items-center justify-between py-10">
           <div>
