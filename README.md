@@ -1,6 +1,6 @@
 ## Features
 
-Projects build with [Next.js](https://nextjs.org/),
+Projects build with [Next.js](https://nextjs.org/)
 
 - Demo on Heroku - [uscisum.herokuapp.com](https://uscisum.herokuapp.com/)
 - Single authentication for administrators
@@ -15,7 +15,7 @@ Projects build with [Next.js](https://nextjs.org/),
 
 You should have a `.env` at the root project directory that has keys:
 
-- [DB_PATH] for the DB connection
+- [`DB_PATH`] for the DB connection
 - [`ADMIN_PASSWORD`, `ADMIN_SESSION`] for authentication
 - [`NODE_ENV`] `development` for development mode and `production` for production mode
 - [`HOST`, `PORT`] for setup server
