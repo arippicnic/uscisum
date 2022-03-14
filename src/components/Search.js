@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import useSWR from "swr";
-import { IconContext } from "react-icons";
 import { FaSearch } from "react-icons/fa";
 
 import NextLink from "./Link";
@@ -35,13 +34,7 @@ const Search = () => {
   return (
     <div ref={ref} className="relative">
       <div className="search-content flex items-center space-x-2 px-3 py-2">
-        <IconContext.Provider
-          value={{
-            color: "gray",
-          }}
-        >
-          <FaSearch />
-        </IconContext.Provider>
+        <FaSearch color="gray" />
         <input
           type="search"
           placeholder="Search..."

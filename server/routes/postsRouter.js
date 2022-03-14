@@ -23,7 +23,7 @@ router.get("/search", async (req, res) => {
     if (validationError)
       return responses.BAD_REQUEST(res, validationError.details[0].message);
     const results = query
-      ? await Posts.find({ title: { $regex: ".*" + query + ".*" } })
+      ? await Posts.find({ title: { $regex: query, $options: "i" } })
           .limit(5)
           .exec()
       : [];
