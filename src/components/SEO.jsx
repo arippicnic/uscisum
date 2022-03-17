@@ -34,6 +34,8 @@ const RenderArticel = ({ url, finalTitle }) => (
     <meta name="content_author" content={author} />
     <meta name="content_author_site" content={authorUrl} />
 
+    <link rel="shortcut icon" href="/icons/favicon.ico" />
+
     <link
       rel="apple-touch-icon"
       sizes="180x180"
