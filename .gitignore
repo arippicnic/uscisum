@@ -17,6 +17,7 @@
 /buildServer
 
 # misc
+READMEDEV.md
 .DS_Store
 *.pem
 

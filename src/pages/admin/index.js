@@ -1,10 +1,11 @@
 import { useState, useEffect, useCallback } from "react";
 import TextareaAutosize from "react-textarea-autosize";
 
-import { useToasts, Toast } from "@/components/Toast";
-import { Loader } from "@/components/Loader";
-import { SEO } from "@/components/SEO";
+import Toast, { useToasts } from "@/components/Toast";
+import Loader from "@/components/Loader";
+import SEO from "@/components/SEO";
 import styles from "@/styles/Main.module.css";
+import Button from "@/components/Button";
 
 export default function Admin() {
   const [toast, setToast] = useToasts();
@@ -81,8 +82,7 @@ export default function Admin() {
   }, []);
 
   useEffect(() => {
-    const cookie = (name) =>
-      `; ${document.cookie}`.split(`; ${name}=`).pop().split(";").shift();
+    const cookie = (name) => `; ${document.cookie}`.split(`; ${name}=`).pop().split(";").shift();
     if (cookie("ADMIN_SESSION")) {
       setLoggedIn(true);
     }
@@ -139,12 +139,9 @@ export default function Admin() {
               </div>
             </div>
             <div className="pt-5 text-center">
-              <button
-                type="submit"
-                className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              >
+              <Button type="submit" auto={true} className="bg-indigo-700">
                 {loading ? <Loader /> : "Login"}
-              </button>
+              </Button>
             </div>
           </fieldset>
         </form>
@@ -155,10 +152,7 @@ export default function Admin() {
             <fieldset disabled={loading}>
               <div className="input-admin">
                 <div className="col-span-6 sm:col-span-6">
-                  <label
-                    htmlFor="title"
-                    className="block font-medium pb-3 text-gray-500"
-                  >
+                  <label htmlFor="title" className="block font-medium pb-3 text-gray-500">
                     Title (formart: singer - song)
                   </label>
                   <input
@@ -175,10 +169,7 @@ export default function Admin() {
               <div className="pt-8">
                 <div className="grid grid-cols-6 gap-6">
                   <div className="col-span-6 sm:col-span-3">
-                    <label
-                      htmlFor="body"
-                      className="block font-medium pb-3 text-gray-500"
-                    >
+                    <label htmlFor="body" className="block font-medium pb-3 text-gray-500">
                       Body (first: ~ and last: +)
                     </label>
                     <TextareaAutosize
@@ -198,18 +189,12 @@ export default function Admin() {
                 </div>
               </div>
               <div className="pt-5 flex items-center justify-between">
-                <button
-                  onClick={onSignOut}
-                  className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                >
+                <Button type="button" auto={true} onClick={onSignOut} className="bg-red-700">
                   SignOut
-                </button>
-                <button
-                  type="submit"
-                  className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
+                </Button>
+                <Button type="submit" auto={true} className="bg-indigo-700">
                   {loading ? <Loader /> : "Create"}
-                </button>
+                </Button>
               </div>
             </fieldset>
           </form>

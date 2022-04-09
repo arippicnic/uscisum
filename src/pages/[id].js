@@ -1,5 +1,5 @@
-import { SEO } from "@/components/SEO";
-import { useToasts, Toast } from "@/components/Toast";
+import SEO from "@/components/SEO";
+import Toast, { useToasts } from "@/components/Toast";
 import Post from "@/components/Post";
 import Vote from "@/components/Vote";
 import Error from "@/components/Error";
@@ -14,11 +14,7 @@ const Home = (props) => {
       {toast ? <Toast>{toast}</Toast> : null}
       <div className="body-content">
         <Search />
-        <Post
-          title={props.data.title}
-          body={props.data.body}
-          createdAt={props.data.createdAt}
-        />
+        <Post title={props.data.title} body={props.data.body} createdAt={props.data.createdAt} />
         <Vote vote={props.data.vote} idPost={props.data._id} />
       </div>
     </>
@@ -27,9 +23,7 @@ const Home = (props) => {
 export async function getServerSideProps({ query }) {
   try {
     const { HOST } = process.env;
-    const data = await (
-      await fetch(`${HOST}api/posts/post/${query.id}`)
-    ).json();
+    const data = await (await fetch(`${HOST}api/posts/post/${query.id}`)).json();
     if (data.error) {
       return {
         notFound: true,

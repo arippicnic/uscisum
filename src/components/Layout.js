@@ -3,7 +3,7 @@ import Logo from "@/styles/logo.svg";
 import Link from "./Link";
 import Footer from "./Footer";
 import ThemeSwitch from "./ThemeSwitch";
-import { Toast } from "./Toast";
+import Toast from "./Toast";
 
 const Layout = ({ children }) => {
   return (
@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
         <noscript>
           <Toast>{`${siteMetadata.name} require JavaScript.`}</Toast>
         </noscript>
-        <header className="flex items-center justify-between py-10">
+        <header className="flex items-center justify-between py-6">
           <div>
             <Link href="/" aria-label={siteMetadata.name}>
               <div className="flex items-center justify-between">
@@ -20,9 +20,7 @@ const Layout = ({ children }) => {
                   <Logo />
                 </div>
                 {typeof siteMetadata.name === "string" ? (
-                  <div className="hidden h-6 text-2xl font-semibold sm:block">
-                    {siteMetadata.name}
-                  </div>
+                  <div className="hidden h-6 text-xl font-semibold sm:block">{siteMetadata.name}</div>
                 ) : (
                   siteMetadata.name
                 )}

@@ -3,8 +3,9 @@ const siteMetadata = {
   siteUrl: process.env.HOST,
   description: "Arti Lirik Terjemahan Lagu",
   author: "PicnicLab",
-  authorUrl: "https://tailwind-nextjs-starter-blog.vercel.app",
+  authorUrl: "https://nextjs.org",
   language: "id-ID",
+  defaultTheme: "light",
   themeColor: "#e10098",
 };
 

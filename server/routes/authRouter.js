@@ -14,10 +14,7 @@ const limiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
   handler: function (req, res /*next*/) {
-    return responses.CONFLICT(
-      res,
-      "Too many login attempts.  Please try again later."
-    );
+    return responses.CONFLICT(res, "Too many login attempts.  Please try again later.");
   },
   keyGenerator: function (req, res) {
     return requestIp.getClientIp(req);

@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FcUp, FcDown } from "react-icons/fc";
-import { useToasts, Toast } from "@/components/Toast";
+import Toast, { useToasts } from "@/components/Toast";
 import Tooltip from "./Tooltip";
 
 export default ({ idPost, vote }) => {
@@ -33,20 +33,12 @@ export default ({ idPost, vote }) => {
       {toast ? <Toast>{toast}</Toast> : null}
       <div className="flex flex-col items-center pt-8">
         <div className="flex">
-          <button
-            data-tip="Vote Lirick Up"
-            data-for="voteUp"
-            onClick={() => handleClick("UP")}
-          >
+          <button data-tip="Vote Lirick Up" data-for="voteUp" onClick={() => handleClick("UP")}>
             <FcUp className="h-8 w-8" />
           </button>
           <Tooltip id="voteUp" place="left" />
           <span className="mx-10 text-xl pt-1">{isVote}</span>
-          <button
-            onClick={() => handleClick("DOWN")}
-            data-tip="Vote Lirick Down"
-            data-for="voteDown"
-          >
+          <button onClick={() => handleClick("DOWN")} data-tip="Vote Lirick Down" data-for="voteDown">
             <FcDown className="h-8 w-8" />
           </button>
           <Tooltip id="voteDown" place="right" />

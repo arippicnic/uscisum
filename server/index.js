@@ -15,7 +15,11 @@ const handler = app.getRequestHandler();
 
 app.prepare().then(() => {
   const server = express();
-  server.use(helmet());
+  server.use(
+    helmet({
+      contentSecurityPolicy: false,
+    })
+  );
   server.use(cookieParser(ADMIN_SESSION));
   server.use(compression());
   server.use(express.json());

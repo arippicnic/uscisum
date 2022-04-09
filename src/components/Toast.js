@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-function useToasts() {
+export const useToasts = () => {
   const [toast, set] = useState(null);
   const timeout = useRef(null);
 
@@ -13,9 +13,9 @@ function useToasts() {
   }, [toast]);
 
   return [toast, set];
-}
+};
 
-function Toast({ children, className, ...props }) {
+const Toast = ({ children, className, ...props }) => {
   return (
     <>
       <div className="tosts-alert">
@@ -45,6 +45,6 @@ function Toast({ children, className, ...props }) {
       </div>
     </>
   );
-}
+};
 
-export { Toast, useToasts };
+export default Toast;

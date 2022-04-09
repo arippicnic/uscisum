@@ -1,7 +1,7 @@
 import React from "react";
 
-import { useToasts, Toast } from "@/components/Toast";
-import { SEO } from "@/components/SEO";
+import Toast, { useToasts } from "@/components/Toast";
+import SEO from "@/components/SEO";
 import Post from "@/components/Post";
 import Link from "@/components/Link";
 import Error from "@/components/Error";
@@ -20,11 +20,7 @@ const Home = (props) => {
           {props.data.map((post) => (
             <li key={post._id} className="py-1">
               <Link href={`/${post._id}`}>
-                <Post
-                  title={post.title}
-                  body={post.body}
-                  createdAt={post.createdAt}
-                />
+                <Post title={post.title} body={post.body} createdAt={post.createdAt} />
               </Link>
             </li>
           ))}
